@@ -1,0 +1,6 @@
+@use '../../../styles/abstract/variables' as *;
+
+.container {
+	background-color: $bg-primary;
+	min-height: calc(100vh - $header-height - $footer-height);
+}
