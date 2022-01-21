@@ -1,8 +1,9 @@
 import { NextPage } from 'next';
+import styles from './Footer.module.scss';
 
 const Footer: NextPage = () => {
 	return (
-		<footer>
+		<footer className={styles.footer}>
 			<p>Footer Text</p>
 		</footer>
 	);
