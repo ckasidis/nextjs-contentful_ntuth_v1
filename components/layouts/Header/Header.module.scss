@@ -1,0 +1,15 @@
+@use '../../../styles/abstract/variables' as *;
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: $primary;
+	min-height: 4rem;
+	padding: 0 2rem;
+}
+
+.list {
+	display: flex;
+	gap: 1rem;
+}

@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import Header from './Header';
+import Header from './Header/Header';
 import Footer from './Footer';
 
 const Layout: NextPage = ({ children }) => {
