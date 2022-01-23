@@ -1,8 +1,13 @@
 import { NextPage } from 'next';
+import Head from 'next/head';
+import styles from './index.module.scss';
 
 const HomePage: NextPage = () => {
 	return (
-		<div>
+		<main className={styles.main}>
+			<Head>
+				<title>Home</title>
+			</Head>
 			<h1>Hello สวัสดี</h1>
 			<p>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
@@ -36,7 +41,7 @@ const HomePage: NextPage = () => {
 				Necessitatibus blanditiis voluptate commodi, iure a esse, tenetur neque
 				quod sapiente saepe itaque.
 			</p>
-		</div>
+		</main>
 	);
 };
 
