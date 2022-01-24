@@ -4,7 +4,7 @@ import styles from './404.module.scss';
 
 const PageNotFound: NextPage = () => {
 	return (
-		<main className={styles.container}>
+		<main className={styles.main}>
 			<Head>
 				<title>Page Not Found</title>
 			</Head>
