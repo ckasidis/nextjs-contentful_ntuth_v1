@@ -4,6 +4,7 @@ import contentful from '../../lib/contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { IGuide } from '../../@types/generated/contentful';
 import PageNotFound from '../404';
+import Card from '../../components/common/Card';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 	const res = await contentful.getEntries({
@@ -30,30 +31,37 @@ const SingleGuidePage: NextPage<Props> = ({ guide }) => {
 
 	return (
 		<main className="main">
-			<h1 className="title">{title}</h1>
-			<div className="author">
-				{author.map((member) => (
-					<h3 key={member.fields.fullname}>{member.fields.fullname}</h3>
-				))}
-			</div>
-			<div className="featured-image">
-				<Image
-					src={'http:' + featuredImage.fields.file.url}
-					width={featuredImage.fields.file.details.image!.width}
-					height={featuredImage.fields.file.details.image!.height}
-					alt={featuredImage.fields.title}
-				/>
-			</div>
-			<div className="main-content">
-				{documentToReactComponents(mainContent!)}
-			</div>
+			<Card>
+				<h1 className="title">{title}</h1>
+				<div className="author">
+					{author.map((member) => (
+						<h3 key={member.fields.fullname}>{member.fields.fullname}</h3>
+					))}
+				</div>
+				<div className="featured-image">
+					<Image
+						src={'http:' + featuredImage.fields.file.url}
+						width={featuredImage.fields.file.details.image!.width}
+						height={featuredImage.fields.file.details.image!.height}
+						alt={featuredImage.fields.title}
+					/>
+				</div>
+				<div className="main-content">
+					{documentToReactComponents(mainContent!)}
+				</div>
+			</Card>
 			<style jsx>{`
 				.main {
 					min-height: inherit;
 				}
 
 				.featured-image {
-					width: clamp(20rem, 60vw, 40rem);
+					width: clamp(15rem, 60vw, 45rem);
+					z-index: 1;
+				}
+
+				.main-content {
+					width: clamp(15rem, 60vw, 75ch);
 				}
 			`}</style>
 		</main>

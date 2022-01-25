@@ -7,6 +7,7 @@
 :root {
 	--primary: #e11d48;
 	--bg-primary: #fafafa;
+	--bg-container: #e5e5e5;
 	--text-primary: #171717;
 
 	--header-height: 4rem;
