@@ -1,4 +1,6 @@
-const index = () => {
+import { NextPage } from 'next';
+
+const index: NextPage = () => {
 	return <div>Guide Page</div>;
 };
 
