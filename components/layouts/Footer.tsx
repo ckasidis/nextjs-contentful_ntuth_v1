@@ -1,10 +1,17 @@
 import { NextPage } from 'next';
-import styles from './Footer.module.scss';
 
 const Footer: NextPage = () => {
 	return (
-		<footer className={styles.footer}>
+		<footer className="footer">
 			<p>Footer Text</p>
+			<style jsx>{`
+				.footer {
+					display: grid;
+					place-items: center;
+					background-color: var(--primary);
+					min-height: var(--footer-height);
+				}
+			`}</style>
 		</footer>
 	);
 };

@@ -1,8 +1,0 @@
-@use '../../styles/abstract/variables' as *;
-
-.footer {
-	display: grid;
-	place-items: center;
-	background-color: $primary;
-	min-height: $footer-height;
-}

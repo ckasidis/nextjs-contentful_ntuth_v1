@@ -4,9 +4,9 @@ const ServerErrorPage = () => {
 	return (
 		<main>
 			<Head>
-				<title>Page Not Found</title>
+				<title>Server Error</title>
 			</Head>
-			<h1>500 | Page Not Found</h1>
+			<h1>500 | Server Error</h1>
 		</main>
 	);
 };

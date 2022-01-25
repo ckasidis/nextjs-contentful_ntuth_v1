@@ -1,10 +1,9 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
-import styles from './index.module.scss';
 
 const HomePage: NextPage = () => {
 	return (
-		<main className={styles.main}>
+		<main className="main">
 			<Head>
 				<title>Home</title>
 			</Head>
@@ -41,6 +40,11 @@ const HomePage: NextPage = () => {
 				Necessitatibus blanditiis voluptate commodi, iure a esse, tenetur neque
 				quod sapiente saepe itaque.
 			</p>
+			<style jsx>{`
+				.main {
+					min-width: inherit;
+				}
+			`}</style>
 		</main>
 	);
 };
