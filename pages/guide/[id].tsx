@@ -1,26 +1,22 @@
 import { GetServerSideProps, NextPage } from 'next';
-import { createClient } from 'contentful';
+import contentful from '../../lib/contentful';
+import PageNotFound from '../404';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-	const client = createClient({
-		space: process.env.CONTENTFUL_SPACE_ID!,
-		environment: process.env.CONTENTFUL_ENVIRONMENT_ID!,
-		accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
-	});
-
-	const res = await client.getEntries({
+	const res = await contentful.getEntries({
 		content_type: 'guide',
 		'fields.slug': params!.id,
 	});
 
 	return {
 		props: {
-			guide: res.items[0],
+			guide: res.items.length ? res.items[0] : null,
 		},
 	};
 };
 
 const SingleGuidePage: NextPage = ({ guide }: any) => {
+	if (!guide) return <PageNotFound />;
 	return <div>Single Guide Page{guide.fields.title}</div>;
 };
 
