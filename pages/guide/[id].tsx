@@ -56,8 +56,10 @@ const SingleGuidePage: NextPage<Props> = ({ guide }) => {
 				}
 
 				.featured-image {
-					width: clamp(15rem, 60vw, 45rem);
+					position: relative;
 					z-index: 1;
+					width: clamp(15rem, 60vw, 45rem);
+					margin: 3rem auto;
 				}
 
 				.main-content {

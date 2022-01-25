@@ -18,6 +18,7 @@ const Header: NextPage = () => {
 					align-items: center;
 					justify-content: space-between;
 					position: sticky;
+					z-index: 99;
 					top: 0;
 					background-color: var(--primary);
 					min-height: var(--header-height);
