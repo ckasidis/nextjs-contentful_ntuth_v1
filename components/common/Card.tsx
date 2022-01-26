@@ -6,9 +6,6 @@ const Card: NextPage = ({ children }) => {
 			{children}
 			<style jsx>{`
 				.Card {
-					display: grid;
-					grid-template-columns: 1fr;
-					place-items: center;
 					background-color: var(--bg-container);
 					width: min(80vw, 60rem);
 					margin: 4em auto;

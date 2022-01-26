@@ -1,5 +1,6 @@
 import { GetServerSideProps, NextPage } from 'next';
 import Image from 'next/image';
+import { FaUserAlt } from 'react-icons/fa';
 import contentful from '../../lib/contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { IGuide } from '../../@types/generated/contentful';
@@ -27,27 +28,32 @@ const SingleGuidePage: NextPage<Props> = ({ guide }) => {
 	if (!guide) return <PageNotFound />;
 
 	const { title, featuredImage, mainContent, author } = guide.fields;
-	console.log(guide);
 
 	return (
 		<main className="main">
 			<Card>
-				<h1 className="title">{title}</h1>
-				<div className="author">
-					{author.map((member) => (
-						<h3 key={member.fields.fullname}>{member.fields.fullname}</h3>
-					))}
-				</div>
-				<div className="featured-image">
-					<Image
-						src={'http:' + featuredImage.fields.file.url}
-						width={featuredImage.fields.file.details.image!.width}
-						height={featuredImage.fields.file.details.image!.height}
-						alt={featuredImage.fields.title}
-					/>
-				</div>
-				<div className="main-content">
-					{documentToReactComponents(mainContent!)}
+				<div className="container">
+					<h1 className="title">{title}</h1>
+					<div className="author">
+						{author.map((member) => (
+							<p key={member.fields.fullname}>
+								<FaUserAlt />
+								<span> </span>
+								{member.fields.fullname}
+							</p>
+						))}
+					</div>
+					<div className="featured-image">
+						<Image
+							src={'http:' + featuredImage.fields.file.url}
+							width={featuredImage.fields.file.details.image!.width}
+							height={featuredImage.fields.file.details.image!.height}
+							alt={featuredImage.fields.title}
+						/>
+					</div>
+					<div className="main-content">
+						{documentToReactComponents(mainContent!)}
+					</div>
 				</div>
 			</Card>
 			<style jsx>{`
@@ -55,15 +61,25 @@ const SingleGuidePage: NextPage<Props> = ({ guide }) => {
 					min-height: inherit;
 				}
 
+				.container {
+					display: grid;
+					grid-template-columns: 1fr;
+					gap: 1rem;
+					width: min(60vw, 40rem);
+					margin-inline: auto;
+				}
+
+				.title,
+				.author {
+					justify-self: start;
+				}
+
 				.featured-image {
 					position: relative;
 					z-index: 1;
-					width: clamp(15rem, 60vw, 45rem);
-					margin: 3rem auto;
 				}
 
 				.main-content {
-					width: clamp(15rem, 60vw, 75ch);
 				}
 			`}</style>
 		</main>
