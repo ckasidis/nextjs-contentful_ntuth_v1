@@ -1,15 +1,26 @@
 import { NextPage } from 'next';
+import Link from 'next/link';
 
 const Header: NextPage = () => {
 	return (
 		<header className="header">
-			<div>logo</div>
+			<div className="logo">
+				<Link href="/">logo</Link>
+			</div>
 			<nav>
 				<ul className="list">
-					<li>a</li>
-					<li>b</li>
-					<li>c</li>
-					<li>d</li>
+					<li>
+						<Link href="/guide">guides</Link>
+					</li>
+					<li>
+						<Link href="/event">events</Link>
+					</li>
+					<li>
+						<Link href="/member">members</Link>
+					</li>
+					<li>
+						<Link href="/about">about</Link>
+					</li>
 				</ul>
 			</nav>
 			<style jsx>{`
