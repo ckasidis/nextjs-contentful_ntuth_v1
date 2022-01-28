@@ -5,7 +5,6 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import contentful from '../../lib/contentful';
 import { IGuide } from '../../@types/generated/contentful';
 import PageNotFound from '../404';
-import Card from '../../components/common/Card';
 import Link from 'next/link';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
@@ -32,8 +31,8 @@ const SingleGuidePage: NextPage<Props> = ({ guide }) => {
 
 	return (
 		<main className="main">
-			<Card>
-				<div className="container">
+			<div className="container">
+				<div className="text-container">
 					<h1 className="title">{title}</h1>
 					<Link href="/guide">Back to Guide</Link>
 					<div className="author">
@@ -57,17 +56,22 @@ const SingleGuidePage: NextPage<Props> = ({ guide }) => {
 						{documentToReactComponents(mainContent!)}
 					</div>
 				</div>
-			</Card>
+			</div>
 			<style jsx>{`
 				.main {
 					min-height: inherit;
 				}
 
 				.container {
+					max-width: 40em;
+					margin-inline: auto;
+					padding: 2rem;
+				}
+
+				.text-container {
 					display: grid;
 					grid-template-columns: 1fr;
 					gap: 1rem;
-					width: min(70vw, 40rem);
 					margin-inline: auto;
 				}
 

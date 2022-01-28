@@ -44,6 +44,9 @@ export interface IMemberFields {
   /** Full Name */
   fullname: string;
 
+  /** slug */
+  slug: string;
+
   /** Nickname */
   nickname: string;
 
@@ -52,6 +55,9 @@ export interface IMemberFields {
 
   /** Programme */
   programme: string;
+
+  /** Image */
+  image: Asset;
 }
 
 export interface IMember extends Entry<IMemberFields> {
