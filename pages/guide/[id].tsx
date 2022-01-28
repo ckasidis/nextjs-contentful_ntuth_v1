@@ -1,11 +1,12 @@
 import { GetServerSideProps, NextPage } from 'next';
 import Image from 'next/image';
 import { FaUserAlt } from 'react-icons/fa';
-import contentful from '../../lib/contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import contentful from '../../lib/contentful';
 import { IGuide } from '../../@types/generated/contentful';
 import PageNotFound from '../404';
 import Card from '../../components/common/Card';
+import Link from 'next/link';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 	const res = await contentful.getEntries({
@@ -34,6 +35,7 @@ const SingleGuidePage: NextPage<Props> = ({ guide }) => {
 			<Card>
 				<div className="container">
 					<h1 className="title">{title}</h1>
+					<Link href="/guide">Back to Guide</Link>
 					<div className="author">
 						{author.map((member) => (
 							<p key={member.fields.fullname}>
@@ -65,21 +67,13 @@ const SingleGuidePage: NextPage<Props> = ({ guide }) => {
 					display: grid;
 					grid-template-columns: 1fr;
 					gap: 1rem;
-					width: min(60vw, 40rem);
+					width: min(70vw, 40rem);
 					margin-inline: auto;
-				}
-
-				.title,
-				.author {
-					justify-self: start;
 				}
 
 				.featured-image {
 					position: relative;
 					z-index: 1;
-				}
-
-				.main-content {
 				}
 			`}</style>
 		</main>

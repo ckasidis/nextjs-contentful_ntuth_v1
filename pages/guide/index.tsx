@@ -1,7 +1,7 @@
 import { GetServerSideProps, NextPage } from 'next';
 import Link from 'next/link';
-import { IGuide } from '../../@types/generated/contentful';
 import contentful from '../../lib/contentful';
+import { IGuide } from '../../@types/generated/contentful';
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	const res = await contentful.getEntries({
