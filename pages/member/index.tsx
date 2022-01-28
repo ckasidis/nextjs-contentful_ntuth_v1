@@ -1,4 +1,5 @@
 import { GetServerSideProps, NextPage } from 'next';
+import Head from 'next/head';
 import contentful from '../../lib/contentful';
 import { IMember } from '../../@types/generated/contentful';
 import MemberList from '../../components/member/MemberList';
@@ -22,6 +23,9 @@ interface Props {
 const MemberPage: NextPage<Props> = ({ members }) => {
 	return (
 		<main className="main">
+			<Head>
+				<title>Members</title>
+			</Head>
 			<MemberList members={members} />
 			<style jsx>{`
 				.main {

@@ -1,13 +1,13 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 
-const HomePage: NextPage = () => {
+const AboutPage: NextPage = () => {
 	return (
 		<main className="main">
 			<Head>
-				<title>Home</title>
+				<title>About</title>
 			</Head>
-			<h1>Hello World</h1>
+			<h1>เกี่ยวกับเรา</h1>
 			<p>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
 				numquam ullam distinctio repudiandae? Sed dolore totam quaerat ipsum
@@ -49,4 +49,4 @@ const HomePage: NextPage = () => {
 	);
 };
 
-export default HomePage;
+export default AboutPage;

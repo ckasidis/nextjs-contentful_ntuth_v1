@@ -1,11 +1,12 @@
 import { GetServerSideProps, NextPage } from 'next';
+import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FaUserAlt } from 'react-icons/fa';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import contentful from '../../lib/contentful';
 import { IGuide } from '../../@types/generated/contentful';
 import PageNotFound from '../404';
-import Link from 'next/link';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 	const res = await contentful.getEntries({
@@ -31,6 +32,9 @@ const SingleGuidePage: NextPage<Props> = ({ guide }) => {
 
 	return (
 		<main className="main">
+			<Head>
+				<title>{title}</title>
+			</Head>
 			<div className="container">
 				<div className="text-container">
 					<h1 className="title">{title}</h1>
