@@ -1,5 +1,6 @@
 import { GetServerSideProps, NextPage } from 'next';
 import { IMember } from '../../@types/generated/contentful';
+import MemberCard from '../../components/member/MemberCard';
 import contentful from '../../lib/contentful';
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -20,12 +21,16 @@ interface Props {
 
 const MemberPage: NextPage<Props> = ({ members }) => {
 	return (
-		<div>
+		<main className="main">
 			<h1>Member</h1>
 			{members.map((member) => (
-				<h2 key={member.fields.fullname}>{member.fields.fullname}</h2>
+				<MemberCard member={member} key={member.fields.fullname} />
 			))}
-		</div>
+			<style jsx>{`
+				.container {
+				}
+			`}</style>
+		</main>
 	);
 };
 
