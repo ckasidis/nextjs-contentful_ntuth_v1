@@ -1,9 +1,8 @@
 import { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 import contentful from '../../lib/contentful';
 import { IEvent } from '../../@types/generated/contentful';
-import EventCard from '../../components/event/EventCard';
+import EventList from '../../components/event/EventList';
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	const res = await contentful.getEntries({
@@ -20,13 +19,17 @@ interface Props {
 
 const EventPage: NextPage<Props> = ({ events }) => {
 	return (
-		<main>
+		<main className="main">
 			<Head>
 				<title>Events</title>
 			</Head>
-			{events.map((event) => (
-				<EventCard key={event.fields.title} event={event} />
-			))}
+			<EventList events={events} />
+			<style jsx>{`
+				.main {
+					min-height: inherit;
+					padding: 2rem;
+				}
+			`}</style>
 		</main>
 	);
 };

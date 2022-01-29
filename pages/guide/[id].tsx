@@ -50,6 +50,7 @@ const SingleGuidePage: NextPage<Props> = ({ guide }) => {
 					</div>
 					<div className="featured-image">
 						<Image
+							className="rounded"
 							src={'http:' + featuredImage.fields.file.url}
 							width={featuredImage.fields.file.details.image!.width}
 							height={featuredImage.fields.file.details.image!.height}
