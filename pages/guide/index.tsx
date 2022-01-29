@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import contentful from '../../lib/contentful';
 import { IGuide } from '../../@types/generated/contentful';
+import GuideCard from '../../components/guide/GuideCard';
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	const res = await contentful.getEntries({
@@ -23,11 +24,8 @@ const GuidePage: NextPage<Props> = ({ guides }) => {
 			<Head>
 				<title>Guides</title>
 			</Head>
-			<h1>Guide Page</h1>
 			{guides.map((guide) => (
-				<h2 key={guide.fields.title}>
-					<Link href={`/guide/${guide.fields.slug}`}>{guide.fields.title}</Link>
-				</h2>
+				<GuideCard key={guide.fields.title} guide={guide} />
 			))}
 		</main>
 	);
