@@ -1,9 +1,8 @@
 import { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 import contentful from '../../lib/contentful';
 import { IGuide } from '../../@types/generated/contentful';
-import GuideCard from '../../components/guide/GuideCard';
+import GuideList from '../../components/guide/GuideList';
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	const res = await contentful.getEntries({
@@ -20,13 +19,17 @@ interface Props {
 
 const GuidePage: NextPage<Props> = ({ guides }) => {
 	return (
-		<main>
+		<main className="main">
 			<Head>
-				<title>Guides</title>
+				<title>Events</title>
 			</Head>
-			{guides.map((guide) => (
-				<GuideCard key={guide.fields.title} guide={guide} />
-			))}
+			<GuideList guides={guides} />
+			<style jsx>{`
+				.main {
+					min-height: inherit;
+					padding: 2rem;
+				}
+			`}</style>
 		</main>
 	);
 };

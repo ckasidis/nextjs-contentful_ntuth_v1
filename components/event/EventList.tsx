@@ -6,7 +6,7 @@ interface Props {
 	events: IEvent[];
 }
 
-const MemberList: NextPage<Props> = ({ events }) => {
+const EventList: NextPage<Props> = ({ events }) => {
 	return (
 		<div>
 			<div className="event-list">
@@ -29,4 +29,4 @@ const MemberList: NextPage<Props> = ({ events }) => {
 	);
 };
 
-export default MemberList;
+export default EventList;
