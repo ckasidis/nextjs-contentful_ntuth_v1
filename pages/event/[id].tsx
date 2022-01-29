@@ -5,30 +5,53 @@ import Link from 'next/link';
 import { FaUserAlt } from 'react-icons/fa';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import contentful from '../../lib/contentful';
-import { IGuide } from '../../@types/generated/contentful';
+import { IEvent } from '../../@types/generated/contentful';
 import PageNotFound from '../404';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 	const res = await contentful.getEntries({
-		content_type: 'guide',
+		content_type: 'event',
 		'fields.slug': params!.id,
 	});
 
 	return {
 		props: {
-			guide: res.items.length ? res.items[0] : null,
+			event: res.items.length ? res.items[0] : null,
 		},
 	};
 };
 
 interface Props {
-	guide: IGuide | null;
+	event: IEvent | null;
 }
 
-const SingleGuidePage: NextPage<Props> = ({ guide }) => {
-	if (!guide) return <PageNotFound />;
+const SingleEventPage: NextPage<Props> = ({ event }) => {
+	if (!event) return <PageNotFound />;
 
-	const { title, featuredImage, mainContent, author } = guide.fields;
+	const { title, dateTime, featuredImage, mainContent, author } = event.fields;
+
+	const dt = dateTime ? new Date(dateTime) : null;
+
+	// const dayToString = (dayNo: number): string => {
+	// 	switch (dayNo) {
+	// 		case 0:
+	// 			return 'Sunday';
+	// 		case 1:
+	// 			return 'Monday';
+	// 		case 2:
+	// 			return 'Tuesday';
+	// 		case 3:
+	// 			return 'Wednesday';
+	// 		case 4:
+	// 			return 'Thursday';
+	// 		case 5:
+	// 			return 'Friday';
+	// 		case 6:
+	// 			return 'Saturday';
+	// 		default:
+	// 			return '';
+	// 	}
+	// };
 
 	return (
 		<main className="main">
@@ -37,8 +60,9 @@ const SingleGuidePage: NextPage<Props> = ({ guide }) => {
 			</Head>
 			<div className="container">
 				<div className="text-container">
-					<Link href="/guide">Back to Guide</Link>
+					<Link href="/event">Back to Event</Link>
 					<h1 className="title">{title}</h1>
+					{dt && <h4>{`${dt.toString()}`}</h4>}
 					<div className="author">
 						{author.map((member) => (
 							<p key={member.fields.fullname}>
@@ -88,4 +112,4 @@ const SingleGuidePage: NextPage<Props> = ({ guide }) => {
 	);
 };
 
-export default SingleGuidePage;
+export default SingleEventPage;

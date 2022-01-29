@@ -26,7 +26,7 @@ const EventPage: NextPage<Props> = ({ events }) => {
 			<h1>Event Page</h1>
 			{events.map((event) => (
 				<h2 key={event.fields.title}>
-					<Link href={`/guide/${event.fields.slug}`}>{event.fields.title}</Link>
+					<Link href={`/event/${event.fields.slug}`}>{event.fields.title}</Link>
 				</h2>
 			))}
 		</main>
