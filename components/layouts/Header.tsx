@@ -5,21 +5,31 @@ const Header: NextPage = () => {
 	return (
 		<header className="header">
 			<div className="logo">
-				<Link href="/">logo</Link>
+				<Link href="/">
+					<a className="header-link">logo</a>
+				</Link>
 			</div>
 			<nav>
 				<ul className="list">
 					<li>
-						<Link href="/guide">guides</Link>
+						<Link href="/guide">
+							<a className="header-link">guides</a>
+						</Link>
 					</li>
 					<li>
-						<Link href="/event">events</Link>
+						<Link href="/event">
+							<a className="header-link">events</a>
+						</Link>
 					</li>
 					<li>
-						<Link href="/member">members</Link>
+						<Link href="/member">
+							<a className="header-link">members</a>
+						</Link>
 					</li>
 					<li>
-						<Link href="/about">about</Link>
+						<Link href="/about">
+							<a className="header-link">about</a>
+						</Link>
 					</li>
 				</ul>
 			</nav>
@@ -34,6 +44,10 @@ const Header: NextPage = () => {
 					background-color: var(--primary);
 					min-height: var(--header-height);
 					padding: 0 2rem;
+				}
+
+				.header-link {
+					color: var(--link-alternate);
 				}
 
 				.list {

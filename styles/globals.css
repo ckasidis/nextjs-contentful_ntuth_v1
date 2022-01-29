@@ -10,6 +10,8 @@
 	--bg-container: #f3f4f6;
 	--text-primary: #171717;
 	--text-alternate: #f5f5f5;
+	--link-primary: #e11d48;
+	--link-alternate: #f5f5f5;
 
 	--header-height: 5rem;
 	--footer-height: 5rem;
@@ -24,11 +26,19 @@ body {
 	font-family: 'Noto Sans Display', 'Noto Sans Thai', sans-serif;
 }
 
+a {
+	color: var(--link-primary);
+	text-decoration: none;
+}
+
+a:hover {
+	filter: brightness(75%);
+}
+
 .card {
 	background-color: var(--bg-container);
 	padding: 2em;
 	border-radius: 2em;
-	/* color: var(--text-alternate); */
 }
 
 .circle {
