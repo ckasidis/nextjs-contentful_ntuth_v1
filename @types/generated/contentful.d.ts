@@ -3,6 +3,46 @@
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
+export interface IEventFields {
+  /** Title */
+  title: string;
+
+  /** Slug */
+  slug: string;
+
+  /** Date and Time */
+  dateTime?: string | undefined;
+
+  /** Short Description */
+  shortDescription: string;
+
+  /** Featured Image */
+  featuredImage: Asset;
+
+  /** Main Content */
+  mainContent?: Document | undefined;
+
+  /** Author */
+  author: IMember[];
+}
+
+export interface IEvent extends Entry<IEventFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "event";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IGuideFields {
   /** Title */
   title: string;
@@ -77,7 +117,7 @@ export interface IMember extends Entry<IMemberFields> {
   };
 }
 
-export type CONTENT_TYPE = "guide" | "member";
+export type CONTENT_TYPE = "event" | "guide" | "member";
 
 export type LOCALE_CODE = "en-US";
 

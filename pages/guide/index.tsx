@@ -17,7 +17,7 @@ interface Props {
 	guides: IGuide[];
 }
 
-const index: NextPage<Props> = ({ guides }) => {
+const GuidePage: NextPage<Props> = ({ guides }) => {
 	return (
 		<main>
 			<Head>
@@ -33,4 +33,4 @@ const index: NextPage<Props> = ({ guides }) => {
 	);
 };
 
-export default index;
+export default GuidePage;
