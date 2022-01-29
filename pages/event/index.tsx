@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import contentful from '../../lib/contentful';
 import { IEvent } from '../../@types/generated/contentful';
+import EventCard from '../../components/event/EventCard';
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	const res = await contentful.getEntries({
@@ -23,11 +24,8 @@ const EventPage: NextPage<Props> = ({ events }) => {
 			<Head>
 				<title>Events</title>
 			</Head>
-			<h1>Event Page</h1>
 			{events.map((event) => (
-				<h2 key={event.fields.title}>
-					<Link href={`/event/${event.fields.slug}`}>{event.fields.title}</Link>
-				</h2>
+				<EventCard key={event.fields.title} event={event} />
 			))}
 		</main>
 	);

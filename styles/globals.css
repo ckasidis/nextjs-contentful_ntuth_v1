@@ -34,3 +34,7 @@ body {
 .circle {
 	border-radius: 100%;
 }
+
+.rounded {
+	border-radius: 1rem;
+}
