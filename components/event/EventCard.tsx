@@ -1,6 +1,7 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { IEvent } from '../../@types/generated/contentful';
 
 interface Props {
@@ -12,7 +13,11 @@ const EventCard: NextPage<Props> = ({ event }) => {
 
 	return (
 		<Link href={`/event/${slug}`} passHref={true}>
-			<div className="card container">
+			<motion.div
+				className="card container"
+				whileHover={{ scale: 1.05 }}
+				whileTap={{ scale: 0.95 }}
+			>
 				<div className="image">
 					<Image
 						className="rounded"
@@ -39,7 +44,7 @@ const EventCard: NextPage<Props> = ({ event }) => {
 						margin-inline: auto;
 					}
 				`}</style>
-			</div>
+			</motion.div>
 		</Link>
 	);
 };
