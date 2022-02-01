@@ -21,25 +21,29 @@ const MemberCard: NextPage<Props> = ({ member }) => {
 				/>
 			</div>
 
-			<div className="container">
-				<h4>
-					{fullname} ({nickname})
-				</h4>
-				<p>
-					{status}, {programme}
-				</p>
-			</div>
+			<h4>{`${fullname} (${nickname})`}</h4>
+			<p>{`${status}, ${programme}`}</p>
+
 			<style jsx>{`
 				.container {
 					display: grid;
 					grid-template-columns: 1fr;
+					place-items: center;
 					gap: 1rem;
-					text-align: center;
 					max-width: 25em;
+					text-align: center;
 				}
+
 				.image {
-					width: 80%;
-					margin-inline: auto;
+					display: grid;
+					place-items: center;
+					width: 60%;
+				}
+
+				@media (min-width: 40em) {
+					.image {
+						min-height: 14rem;
+					}
 				}
 			`}</style>
 		</div>

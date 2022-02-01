@@ -37,9 +37,18 @@ const EventCard: NextPage<Props> = ({ event }) => {
 					place-items: center;
 					gap: 1rem;
 					max-width: 25em;
+					text-align: center;
 				}
 				.image {
+					display: grid;
+					place-items: center;
 					width: 80%;
+				}
+
+				@media (min-width: 40em) {
+					.image {
+						min-height: 14rem;
+					}
 				}
 			`}</style>
 		</>

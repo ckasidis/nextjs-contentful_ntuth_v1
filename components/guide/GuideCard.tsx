@@ -25,10 +25,8 @@ const GuideCard: NextPage<Props> = ({ guide }) => {
 								alt={featuredImage.fields.title}
 							/>
 						</div>
-						<div className="container">
-							<h4>{title}</h4>
-							<p>{shortDescription}</p>
-						</div>
+						<h4>{title}</h4>
+						<p>{shortDescription}</p>
 					</div>
 				</motion.div>
 			</Link>
@@ -36,13 +34,21 @@ const GuideCard: NextPage<Props> = ({ guide }) => {
 				.container {
 					display: grid;
 					grid-template-columns: 1fr;
+					place-items: center;
 					gap: 1rem;
-					text-align: center;
 					max-width: 25em;
+					text-align: center;
 				}
 				.image {
+					display: grid;
+					place-items: center;
 					width: 80%;
-					margin-inline: auto;
+				}
+
+				@media (min-width: 40em) {
+					.image {
+						min-height: 14rem;
+					}
 				}
 			`}</style>
 		</>
