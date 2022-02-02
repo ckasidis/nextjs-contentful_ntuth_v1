@@ -37,7 +37,7 @@ const SingleGuidePage: NextPage<Props> = ({ guide }) => {
 			</Head>
 			<div className="container">
 				<div className="text-container">
-					<Link href="/guide">Back to Guide</Link>
+					<Link href="/guide">View all Guides</Link>
 					<h1 className="title">{title}</h1>
 					<div className="author">
 						{author.map((member) => (

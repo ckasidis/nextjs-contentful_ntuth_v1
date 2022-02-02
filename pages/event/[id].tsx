@@ -60,7 +60,7 @@ const SingleEventPage: NextPage<Props> = ({ event }) => {
 			</Head>
 			<div className="container">
 				<div className="text-container">
-					<Link href="/event">Back to Event</Link>
+					<Link href="/event">View all Events</Link>
 					<h1 className="title">{title}</h1>
 					{dt && <h4>{`${dt.toString()}`}</h4>}
 					<div className="author">

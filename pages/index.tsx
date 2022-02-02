@@ -1,9 +1,10 @@
 import { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
+import contentful from '../lib/contentful';
 import { IEvent, IGuide } from '../@types/generated/contentful';
 import EventList from '../components/event/EventList';
 import GuideList from '../components/guide/GuideList';
-import contentful from '../lib/contentful';
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	const guideRes = await contentful.getEntries({
@@ -38,11 +39,17 @@ const HomePage: NextPage<Props> = ({ guides, events }) => {
 				<title>Home</title>
 			</Head>
 			<div className="list-section">
-				<h2>Our Guides</h2>
+				<header>
+					<h2>Our Guides</h2>
+					<Link href="/guide">View all Guides</Link>
+				</header>
 				<GuideList guides={guides} />
 			</div>
 			<div className="list-section">
-				<h2>Latest Events</h2>
+				<header>
+					<h2>Latest Events</h2>
+					<Link href="/events">View all Events</Link>
+				</header>
 				<EventList events={events} />
 			</div>
 			<style jsx>{`
