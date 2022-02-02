@@ -9,11 +9,13 @@ export const getServerSideProps: GetServerSideProps = async () => {
 	const guideRes = await contentful.getEntries({
 		content_type: 'guide',
 		order: '-sys.createdAt',
+		limit: 2,
 	});
 
 	const eventRes = await contentful.getEntries({
 		content_type: 'event',
 		order: '-sys.createdAt',
+		limit: 2,
 	});
 
 	return {
@@ -35,17 +37,25 @@ const HomePage: NextPage<Props> = ({ guides, events }) => {
 			<Head>
 				<title>Home</title>
 			</Head>
-			<div>
+			<div className="list-section">
 				<h2>Our Guides</h2>
 				<GuideList guides={guides} />
 			</div>
-			<div>
+			<div className="list-section">
 				<h2>Latest Events</h2>
 				<EventList events={events} />
 			</div>
 			<style jsx>{`
 				.main {
-					min-width: inherit;
+					min-height: inherit;
+					padding: 2rem;
+				}
+				.list-section {
+					display: grid;
+					grid-template-columns: 1fr;
+					gap: 2rem;
+					padding: 2rem 0;
+					text-align: center;
 				}
 			`}</style>
 		</main>
