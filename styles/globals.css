@@ -37,8 +37,8 @@ a:hover {
 
 .card {
 	background-color: var(--bg-container);
-	padding: 2em;
-	border-radius: 2em;
+	padding: 2rem;
+	border-radius: 2rem;
 }
 
 .circle {

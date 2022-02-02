@@ -48,7 +48,7 @@ const HomePage: NextPage<Props> = ({ guides, events }) => {
 			<div className="list-section">
 				<header>
 					<h2>Latest Events</h2>
-					<Link href="/events">View all Events</Link>
+					<Link href="/event">View all Events</Link>
 				</header>
 				<EventList events={events} />
 			</div>

@@ -36,7 +36,7 @@ const EventCard: NextPage<Props> = ({ event }) => {
 					grid-template-columns: 1fr;
 					place-items: center;
 					gap: 1rem;
-					max-width: 25em;
+					max-width: 25rem;
 					text-align: center;
 				}
 				.image {
