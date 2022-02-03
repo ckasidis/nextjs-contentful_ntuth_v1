@@ -1,4 +1,5 @@
 import { NextPage } from 'next';
+import { GiHamburgerMenu } from 'react-icons/gi';
 import Link from 'next/link';
 
 const Header: NextPage = () => {
@@ -9,8 +10,14 @@ const Header: NextPage = () => {
 					<a className="header-link">logo</a>
 				</Link>
 			</div>
-			<nav>
-				<ul className="list">
+
+			<nav className="navbar-nav">
+				<button className="hamburger-menu">
+					<span className="sr-only">Menu</span>
+					<GiHamburgerMenu />
+				</button>
+
+				<ul className="navbar-list">
 					<li>
 						<Link href="/guide">
 							<a className="header-link">guides</a>
@@ -39,7 +46,7 @@ const Header: NextPage = () => {
 					align-items: center;
 					justify-content: space-between;
 					position: sticky;
-					z-index: 99;
+					z-index: 9999;
 					top: 0;
 					background-color: var(--primary);
 					min-height: var(--header-height);
@@ -50,9 +57,24 @@ const Header: NextPage = () => {
 					color: var(--link-alternate);
 				}
 
-				.list {
+				.navbar-list {
 					display: flex;
 					gap: 1rem;
+				}
+
+				.hamburger-menu {
+					display: none;
+					border: none;
+				}
+
+				@media (max-width: 40em) {
+					.navbar-list {
+						display: none;
+					}
+
+					.hamburger-menu {
+						display: block;
+					}
 				}
 			`}</style>
 		</header>

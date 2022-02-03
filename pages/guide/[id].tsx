@@ -82,7 +82,7 @@ const SingleGuidePage: NextPage<Props> = ({ guide }) => {
 
 				.featured-image {
 					position: relative;
-					z-index: 1;
+					z-index: 1000;
 				}
 			`}</style>
 		</main>

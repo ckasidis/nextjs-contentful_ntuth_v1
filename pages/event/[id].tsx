@@ -106,7 +106,7 @@ const SingleEventPage: NextPage<Props> = ({ event }) => {
 
 				.featured-image {
 					position: relative;
-					z-index: 1;
+					z-index: 1000;
 				}
 			`}</style>
 		</main>
