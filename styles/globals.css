@@ -35,6 +35,10 @@ a:hover {
 	filter: brightness(75%);
 }
 
+.nav-link {
+	color: var(--link-alternate);
+}
+
 .card {
 	background-color: var(--bg-container);
 	padding: 2rem;

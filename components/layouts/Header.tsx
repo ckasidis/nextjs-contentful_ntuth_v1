@@ -1,44 +1,61 @@
 import { NextPage } from 'next';
-import { GiHamburgerMenu } from 'react-icons/gi';
 import Link from 'next/link';
+import { useState } from 'react';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import MobileNavigation from './MobileNavigation';
 
 const Header: NextPage = () => {
+	const [open, setOpen] = useState(false);
+
+	const toggleMenu = (): void => {
+		setOpen(!open);
+	};
+
+	const menuItems = (
+		<>
+			<li>
+				<Link href="/guide">
+					<a className="nav-link">guides</a>
+				</Link>
+			</li>
+			<li>
+				<Link href="/event">
+					<a className="nav-link">events</a>
+				</Link>
+			</li>
+			<li>
+				<Link href="/member">
+					<a className="nav-link">members</a>
+				</Link>
+			</li>
+			<li>
+				<Link href="/about">
+					<a className="nav-link">about</a>
+				</Link>
+			</li>
+		</>
+	);
+
 	return (
 		<header className="header">
 			<div className="logo">
 				<Link href="/">
-					<a className="header-link">logo</a>
+					<a className="logo">logo</a>
 				</Link>
 			</div>
 
-			<nav className="navbar-nav">
-				<button className="hamburger-menu">
+			{open && (
+				<MobileNavigation close={() => setOpen(!open)}>
+					{menuItems}
+				</MobileNavigation>
+			)}
+
+			<nav>
+				<button className="hamburger-menu" onClick={toggleMenu}>
 					<span className="sr-only">Menu</span>
 					<GiHamburgerMenu />
 				</button>
-
-				<ul className="navbar-list">
-					<li>
-						<Link href="/guide">
-							<a className="header-link">guides</a>
-						</Link>
-					</li>
-					<li>
-						<Link href="/event">
-							<a className="header-link">events</a>
-						</Link>
-					</li>
-					<li>
-						<Link href="/member">
-							<a className="header-link">members</a>
-						</Link>
-					</li>
-					<li>
-						<Link href="/about">
-							<a className="header-link">about</a>
-						</Link>
-					</li>
-				</ul>
+				<ul className="list">{menuItems}</ul>
 			</nav>
 			<style jsx>{`
 				.header {
@@ -53,11 +70,11 @@ const Header: NextPage = () => {
 					padding: 0 2rem;
 				}
 
-				.header-link {
+				.logo {
 					color: var(--link-alternate);
 				}
 
-				.navbar-list {
+				.list {
 					display: flex;
 					gap: 1rem;
 				}
@@ -68,10 +85,9 @@ const Header: NextPage = () => {
 				}
 
 				@media (max-width: 40em) {
-					.navbar-list {
+					.list {
 						display: none;
 					}
-
 					.hamburger-menu {
 						display: block;
 					}
