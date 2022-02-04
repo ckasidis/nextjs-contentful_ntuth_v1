@@ -1,3 +1,4 @@
+import styles from '../styles/layouts/Header.module.css';
 import { NextPage } from 'next';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -11,136 +12,42 @@ const Header: NextPage = () => {
 	};
 
 	return (
-		<header className="header">
-			<div className="logo">
+		<header className={styles.header}>
+			<div>
 				<Link href="/">
-					<a className="logo">logo</a>
+					<a className={styles.logo}>logo</a>
 				</Link>
 			</div>
-			<div className={`${open ? 'backdrop' : ''}`} onClick={toggleMenu}>
-				<nav
-					className={`nav ${
-						open == null ? '' : open ? 'nav-open' : 'nav-close'
-					}`}
-				>
-					<ul className="list">
+			<div className={open ? styles.backdrop : ''} onClick={toggleMenu}>
+				<nav className={styles.nav}>
+					<ul className={styles.list}>
 						<li>
 							<Link href="/guide">
-								<a className="nav-link">guides</a>
+								<a className={styles.navLink}>guides</a>
 							</Link>
 						</li>
 						<li>
 							<Link href="/event">
-								<a className="nav-link">events</a>
+								<a className={styles.navLink}>events</a>
 							</Link>
 						</li>
 						<li>
 							<Link href="/member">
-								<a className="nav-link">members</a>
+								<a className={styles.navLink}>members</a>
 							</Link>
 						</li>
 						<li>
 							<Link href="/about">
-								<a className="nav-link">about</a>
+								<a className={styles.navLink}>about</a>
 							</Link>
 						</li>
 					</ul>
 				</nav>
 			</div>
-			<button className="hamburger-menu" onClick={toggleMenu}>
+			<button className={styles.hamburgerMenu} onClick={toggleMenu}>
 				<span className="sr-only">Menu</span>
 				<GiHamburgerMenu />
 			</button>
-			<style jsx>{`
-				.header {
-					display: flex;
-					align-items: center;
-					justify-content: space-between;
-					position: sticky;
-					z-index: 9999;
-					top: 0;
-					background-color: var(--primary);
-					min-height: var(--header-height);
-					padding: 0 2rem;
-				}
-
-				.logo {
-					color: var(--link-alternate);
-				}
-
-				.nav-link {
-					color: var(--link-alternate);
-				}
-
-				.list {
-					display: flex;
-					gap: 1rem;
-				}
-
-				.hamburger-menu {
-					display: none;
-				}
-
-				@media (max-width: 40em) {
-					.hamburger-menu {
-						display: block;
-						border: none;
-					}
-
-					.nav {
-						position: fixed;
-						top: 0;
-						right: 0;
-						background-color: var(--primary);
-						height: 100vh;
-						width: min(60vw, 20rem);
-						transform: translateX(100%);
-					}
-
-					.nav-open {
-						animation: slide-in 0.5s forwards;
-					}
-
-					.nav-close {
-						animation: slide-out 0.5s forwards;
-					}
-
-					@keyframes slide-in {
-						0% {
-							transform: translateX(100%);
-						}
-						100% {
-							transform: translateX(0%);
-						}
-					}
-
-					@keyframes slide-out {
-						0% {
-							transform: translateX(0%);
-						}
-						100% {
-							transform: translateX(100%);
-						}
-					}
-
-					.list {
-						display: flex;
-						padding-top: 4rem;
-						flex-direction: column;
-						gap: 1rem;
-						align-items: center;
-					}
-
-					.backdrop {
-						position: fixed;
-						top: 0;
-						left: 0;
-						width: 100vw;
-						height: 100vh;
-						background-color: rgba(0, 0, 0, 0.75);
-					}
-				}
-			`}</style>
 		</header>
 	);
 };

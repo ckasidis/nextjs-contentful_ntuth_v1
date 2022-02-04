@@ -1,3 +1,4 @@
+import styles from '../styles/guide/GuideCard.module.css';
 import { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,43 +15,24 @@ const GuideCard: NextPage<Props> = ({ guide }) => {
 	return (
 		<>
 			<Link href={`/guide/${slug}`} passHref={true}>
-				<motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-					<div className="card container">
-						<div className="image">
-							<Image
-								className="rounded"
-								src={'http:' + featuredImage.fields.file.url}
-								width={featuredImage.fields.file.details.image!.width}
-								height={featuredImage.fields.file.details.image!.height}
-								alt={featuredImage.fields.title}
-							/>
-						</div>
-						<h4>{title}</h4>
-						<p>{shortDescription}</p>
+				<motion.div
+					className={`card ${styles.container}`}
+					whileHover={{ scale: 1.05 }}
+					whileTap={{ scale: 0.95 }}
+				>
+					<div className={styles.image}>
+						<Image
+							className="rounded"
+							src={'http:' + featuredImage.fields.file.url}
+							width={featuredImage.fields.file.details.image!.width}
+							height={featuredImage.fields.file.details.image!.height}
+							alt={featuredImage.fields.title}
+						/>
 					</div>
+					<h4>{title}</h4>
+					<p>{shortDescription}</p>
 				</motion.div>
 			</Link>
-			<style jsx>{`
-				.container {
-					display: grid;
-					grid-template-columns: 1fr;
-					place-items: center;
-					gap: 1rem;
-					max-width: 25rem;
-					text-align: center;
-				}
-				.image {
-					display: grid;
-					place-items: center;
-					width: 80%;
-				}
-
-				@media (min-width: 40em) {
-					.image {
-						min-height: 14rem;
-					}
-				}
-			`}</style>
 		</>
 	);
 };
