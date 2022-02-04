@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
 const Header: NextPage = () => {
-	const [open, setOpen] = useState(false);
+	const [open, setOpen] = useState<boolean | null>(null);
 
 	const toggleMenu = (): void => {
 		setOpen(!open);
@@ -18,9 +18,12 @@ const Header: NextPage = () => {
 				</Link>
 			</div>
 			<div className={`${open ? 'backdrop' : ''}`} onClick={toggleMenu}>
-				<nav className={`${open ? 'nav-expand' : ''}`}>
-					<ul className={`list ${open ? 'list-expand' : ''}`}>
-						{' '}
+				<nav
+					className={`nav ${
+						open == null ? '' : open ? 'nav-open' : 'nav-close'
+					}`}
+				>
+					<ul className="list">
 						<li>
 							<Link href="/guide">
 								<a className="nav-link">guides</a>
@@ -84,22 +87,45 @@ const Header: NextPage = () => {
 						border: none;
 					}
 
-					.list {
-						display: none;
-					}
-
-					.nav-expand {
+					.nav {
 						position: fixed;
 						top: 0;
 						right: 0;
 						background-color: var(--primary);
 						height: 100vh;
 						width: min(60vw, 20rem);
+						transform: translateX(100%);
 					}
 
-					.list-expand {
-						padding-top: 4rem;
+					.nav-open {
+						animation: slide-in 0.5s forwards;
+					}
+
+					.nav-close {
+						animation: slide-out 0.5s forwards;
+					}
+
+					@keyframes slide-in {
+						0% {
+							transform: translateX(100%);
+						}
+						100% {
+							transform: translateX(0%);
+						}
+					}
+
+					@keyframes slide-out {
+						0% {
+							transform: translateX(0%);
+						}
+						100% {
+							transform: translateX(100%);
+						}
+					}
+
+					.list {
 						display: flex;
+						padding-top: 4rem;
 						flex-direction: column;
 						gap: 1rem;
 						align-items: center;
