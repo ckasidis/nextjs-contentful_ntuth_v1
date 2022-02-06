@@ -22,23 +22,16 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			</Head>
 			<Header />
-			<div className="container">
-				<motion.div
-					key={router.route}
-					variants={pageTransition}
-					initial="hidden"
-					animate="visible"
-				>
-					<Component {...pageProps} />
-				</motion.div>
-			</div>
+			<motion.div
+				className="app-container"
+				key={router.route}
+				variants={pageTransition}
+				initial="hidden"
+				animate="visible"
+			>
+				<Component {...pageProps} />
+			</motion.div>
 			<Footer />
-			<style jsx>{`
-				.container {
-					background-color: $bg-primary;
-					min-height: calc(100vh - var(--header-height) - var(--footer-height));
-				}
-			`}</style>
 		</div>
 	);
 }

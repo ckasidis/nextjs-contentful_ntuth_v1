@@ -1,7 +1,7 @@
-import styles from '../styles/event/EventList.module.css';
 import { NextPage } from 'next';
-import { IEvent } from '../../@types/generated/contentful';
-import EventCard from './EventCard';
+import { IEvent } from '../../../@types/generated/contentful';
+import EventCard from '../EventCard';
+import CardList from '../../common/CardList';
 
 interface Props {
 	events: IEvent[];
@@ -10,11 +10,11 @@ interface Props {
 const EventList: NextPage<Props> = ({ events }) => {
 	return (
 		<div>
-			<div className={styles.list}>
+			<CardList>
 				{events.map((event) => (
 					<EventCard key={event.fields.title} event={event} />
 				))}
-			</div>
+			</CardList>
 		</div>
 	);
 };

@@ -1,7 +1,8 @@
-import styles from '../styles/guide/GuideList.module.css';
+import styles from './GuideList.module.css';
 import { NextPage } from 'next';
-import { IGuide } from '../../@types/generated/contentful';
-import GuideCard from './GuideCard';
+import { IGuide } from '../../../@types/generated/contentful';
+import GuideCard from '../GuideCard';
+import CardList from '../../common/CardList';
 
 interface Props {
 	guides: IGuide[];
@@ -10,11 +11,11 @@ interface Props {
 const GuideList: NextPage<Props> = ({ guides }) => {
 	return (
 		<div>
-			<div className={styles.list}>
+			<CardList>
 				{guides.map((guide) => (
 					<GuideCard key={guide.fields.title} guide={guide} />
 				))}
-			</div>
+			</CardList>
 		</div>
 	);
 };

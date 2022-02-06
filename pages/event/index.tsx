@@ -3,6 +3,7 @@ import Head from 'next/head';
 import contentful from '../../lib/contentful';
 import { IEvent } from '../../@types/generated/contentful';
 import EventList from '../../components/event/EventList';
+import Section from '../../components/common/Section';
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	const res = await contentful.getEntries({
@@ -23,13 +24,9 @@ const EventPage: NextPage<Props> = ({ events }) => {
 			<Head>
 				<title>Events</title>
 			</Head>
-			<EventList events={events} />
-			<style jsx>{`
-				.main {
-					min-height: inherit;
-					padding: 2rem;
-				}
-			`}</style>
+			<Section title="Our Events">
+				<EventList events={events} />
+			</Section>
 		</main>
 	);
 };

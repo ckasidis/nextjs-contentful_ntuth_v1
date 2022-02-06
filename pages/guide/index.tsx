@@ -3,6 +3,7 @@ import Head from 'next/head';
 import contentful from '../../lib/contentful';
 import { IGuide } from '../../@types/generated/contentful';
 import GuideList from '../../components/guide/GuideList';
+import Section from '../../components/common/Section';
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	const res = await contentful.getEntries({
@@ -23,13 +24,9 @@ const GuidePage: NextPage<Props> = ({ guides }) => {
 			<Head>
 				<title>Events</title>
 			</Head>
-			<GuideList guides={guides} />
-			<style jsx>{`
-				.main {
-					min-height: inherit;
-					padding: 2rem;
-				}
-			`}</style>
+			<Section title="Our Guides">
+				<GuideList guides={guides} />
+			</Section>
 		</main>
 	);
 };

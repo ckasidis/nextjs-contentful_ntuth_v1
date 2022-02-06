@@ -1,6 +1,6 @@
-import styles from '../styles/member/MemberCard.module.css';
+import styles from './MemberCard.module.css';
 import { NextPage } from 'next';
-import { IMember } from '../../@types/generated/contentful';
+import { IMember } from '../../../@types/generated/contentful';
 import Image from 'next/image';
 
 interface Props {

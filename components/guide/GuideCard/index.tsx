@@ -1,20 +1,20 @@
-import styles from '../styles/event/EventCard.module.css';
+import styles from './GuideCard.module.css';
 import { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { IEvent } from '../../@types/generated/contentful';
+import { IGuide } from '../../../@types/generated/contentful';
 
 interface Props {
-	event: IEvent;
+	guide: IGuide;
 }
 
-const EventCard: NextPage<Props> = ({ event }) => {
-	const { title, slug, shortDescription, featuredImage } = event.fields;
+const GuideCard: NextPage<Props> = ({ guide }) => {
+	const { title, slug, shortDescription, featuredImage } = guide.fields;
 
 	return (
 		<>
-			<Link href={`/event/${slug}`} passHref={true}>
+			<Link href={`/guide/${slug}`} passHref={true}>
 				<motion.div
 					className={`card ${styles.container}`}
 					whileHover={{ scale: 1.05 }}
@@ -37,4 +37,4 @@ const EventCard: NextPage<Props> = ({ event }) => {
 	);
 };
 
-export default EventCard;
+export default GuideCard;

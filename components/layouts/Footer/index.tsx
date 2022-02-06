@@ -1,4 +1,4 @@
-import styles from '../styles/layouts/Footer.module.css';
+import styles from './Footer.module.css';
 import { NextPage } from 'next';
 
 const Footer: NextPage = () => {

@@ -1,4 +1,4 @@
-import styles from '../styles/layouts/Header.module.css';
+import styles from './Header.module.css';
 import { NextPage } from 'next';
 import Link from 'next/link';
 import { useState } from 'react';

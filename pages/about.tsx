@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 const AboutPage: NextPage = () => {
 	return (
-		<main className="main">
+		<main>
 			<Head>
 				<title>About</title>
 			</Head>
@@ -40,11 +40,6 @@ const AboutPage: NextPage = () => {
 				Necessitatibus blanditiis voluptate commodi, iure a esse, tenetur neque
 				quod sapiente saepe itaque.
 			</p>
-			<style jsx>{`
-				.main {
-					min-width: inherit;
-				}
-			`}</style>
 		</main>
 	);
 };

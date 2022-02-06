@@ -5,6 +5,7 @@ import contentful from '../lib/contentful';
 import { IEvent, IGuide } from '../@types/generated/contentful';
 import EventList from '../components/event/EventList';
 import GuideList from '../components/guide/GuideList';
+import Section from '../components/common/Section';
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	const guideRes = await contentful.getEntries({
@@ -34,37 +35,22 @@ interface Props {
 
 const HomePage: NextPage<Props> = ({ guides, events }) => {
 	return (
-		<main className="main">
+		<main>
 			<Head>
 				<title>Home</title>
 			</Head>
-			<div className="list-section">
-				<header>
-					<h2>Our Guides</h2>
-					<Link href="/guide">View all Guides</Link>
-				</header>
+			<Section
+				title="Our Guide"
+				link={{ path: '/guide', text: 'View all Guides' }}
+			>
 				<GuideList guides={guides} />
-			</div>
-			<div className="list-section">
-				<header>
-					<h2>Latest Events</h2>
-					<Link href="/event">View all Events</Link>
-				</header>
+			</Section>
+			<Section
+				title="Latest Events"
+				link={{ path: '/event', text: 'View all Events' }}
+			>
 				<EventList events={events} />
-			</div>
-			<style jsx>{`
-				.main {
-					min-height: inherit;
-					padding: 2rem;
-				}
-				.list-section {
-					display: grid;
-					grid-template-columns: 1fr;
-					gap: 2rem;
-					padding: 2rem 0;
-					text-align: center;
-				}
-			`}</style>
+			</Section>
 		</main>
 	);
 };

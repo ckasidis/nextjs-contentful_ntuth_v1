@@ -3,6 +3,7 @@ import Head from 'next/head';
 import contentful from '../../lib/contentful';
 import { IMember } from '../../@types/generated/contentful';
 import MemberList from '../../components/member/MemberList';
+import Section from '../../components/common/Section';
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	const res = await contentful.getEntries({
@@ -26,13 +27,9 @@ const MemberPage: NextPage<Props> = ({ members }) => {
 			<Head>
 				<title>Members</title>
 			</Head>
-			<MemberList members={members} />
-			<style jsx>{`
-				.main {
-					min-height: inherit;
-					padding: 2rem;
-				}
-			`}</style>
+			<Section title="Our Members">
+				<MemberList members={members} />
+			</Section>
 		</main>
 	);
 };
