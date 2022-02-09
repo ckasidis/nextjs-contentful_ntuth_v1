@@ -32,7 +32,7 @@ const SingleGuidePage: NextPage<Props> = ({ guide }) => {
 	const { title, featuredImage, mainContent, author } = guide.fields;
 
 	return (
-		<main className="main">
+		<main>
 			<Head>
 				<title>{title}</title>
 			</Head>

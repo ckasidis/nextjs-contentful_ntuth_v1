@@ -20,14 +20,14 @@ interface Props {
 
 const EventPage: NextPage<Props> = ({ events }) => {
 	return (
-		<main className="main">
+		<>
 			<Head>
 				<title>Events</title>
 			</Head>
 			<Section title="Our Events">
 				<EventList events={events} />
 			</Section>
-		</main>
+		</>
 	);
 };
 

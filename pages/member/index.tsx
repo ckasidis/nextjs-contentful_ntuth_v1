@@ -23,14 +23,14 @@ interface Props {
 
 const MemberPage: NextPage<Props> = ({ members }) => {
 	return (
-		<main className="main">
+		<>
 			<Head>
 				<title>Members</title>
 			</Head>
 			<Section title="Our Members">
 				<MemberList members={members} />
 			</Section>
-		</main>
+		</>
 	);
 };
 

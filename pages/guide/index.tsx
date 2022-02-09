@@ -20,14 +20,14 @@ interface Props {
 
 const GuidePage: NextPage<Props> = ({ guides }) => {
 	return (
-		<main className="main">
+		<>
 			<Head>
 				<title>Guides</title>
 			</Head>
 			<Section title="Our Guides">
 				<GuideList guides={guides} />
 			</Section>
-		</main>
+		</>
 	);
 };
 

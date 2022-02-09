@@ -5,6 +5,7 @@ import { IEvent, IGuide } from '../@types/generated/contentful';
 import EventList from '../components/event/EventList';
 import GuideList from '../components/guide/GuideList';
 import Section from '../components/common/Section';
+import Banner from '../components/common/Banner';
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	const guideRes = await contentful.getEntries({
@@ -34,10 +35,11 @@ interface Props {
 
 const HomePage: NextPage<Props> = ({ guides, events }) => {
 	return (
-		<main>
+		<>
 			<Head>
 				<title>Home</title>
 			</Head>
+			<Banner title="Home" description="Welcome to NTU Thai Society" />
 			<Section
 				title="Our Guides"
 				link={{ path: '/guide', text: 'View all Guides' }}
@@ -50,7 +52,7 @@ const HomePage: NextPage<Props> = ({ guides, events }) => {
 			>
 				<EventList events={events} />
 			</Section>
-		</main>
+		</>
 	);
 };
 

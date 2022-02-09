@@ -34,7 +34,7 @@ const SingleEventPage: NextPage<Props> = ({ event }) => {
 	const dt = dateTime ? new Date(dateTime) : null;
 
 	return (
-		<main className="main">
+		<main>
 			<Head>
 				<title>{title}</title>
 			</Head>

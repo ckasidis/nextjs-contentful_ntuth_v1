@@ -1,0 +1,12 @@
+.container {
+	display: grid;
+	place-items: center;
+	background-color: var(--bg-container);
+	width: 100vw;
+	height: 20rem;
+}
+
+.text {
+	display: grid;
+	place-items: center;
+}
