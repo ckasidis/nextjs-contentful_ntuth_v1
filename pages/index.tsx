@@ -1,6 +1,5 @@
 import { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 import contentful from '../lib/contentful';
 import { IEvent, IGuide } from '../@types/generated/contentful';
 import EventList from '../components/event/EventList';
@@ -40,7 +39,7 @@ const HomePage: NextPage<Props> = ({ guides, events }) => {
 				<title>Home</title>
 			</Head>
 			<Section
-				title="Our Guide"
+				title="Our Guides"
 				link={{ path: '/guide', text: 'View all Guides' }}
 			>
 				<GuideList guides={guides} />

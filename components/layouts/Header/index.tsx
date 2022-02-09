@@ -3,7 +3,6 @@ import { NextPage } from 'next';
 import Link from 'next/link';
 import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { motion } from 'framer-motion';
 
 const Header: NextPage = () => {
 	const [open, setOpen] = useState<boolean | null>(null);

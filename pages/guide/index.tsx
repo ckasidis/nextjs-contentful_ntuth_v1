@@ -22,7 +22,7 @@ const GuidePage: NextPage<Props> = ({ guides }) => {
 	return (
 		<main className="main">
 			<Head>
-				<title>Events</title>
+				<title>Guides</title>
 			</Head>
 			<Section title="Our Guides">
 				<GuideList guides={guides} />
