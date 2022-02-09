@@ -12,10 +12,12 @@
 
 .logo {
 	color: var(--link-alternate);
+	font-size: larger;
 }
 
 .navLink {
 	color: var(--link-alternate);
+	font-size: larger;
 }
 
 .list {
@@ -41,6 +43,31 @@
 		height: 100vh;
 		width: min(60vw, 20rem);
 		transform: translateX(100%);
+	}
+
+	/* .navClose {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border-width: 0;
+	} */
+
+	.navOpen {
+		animation: slide-in 0.25s forwards;
+	}
+
+	@keyframes slide-in {
+		0% {
+			transform: translateX(100%);
+		}
+		100% {
+			transform: translateX(0%);
+		}
 	}
 
 	.list {

@@ -3,6 +3,7 @@ import { NextPage } from 'next';
 import Link from 'next/link';
 import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { motion } from 'framer-motion';
 
 const Header: NextPage = () => {
 	const [open, setOpen] = useState<boolean | null>(null);
@@ -12,14 +13,14 @@ const Header: NextPage = () => {
 	};
 
 	return (
-		<header className={styles.header}>
-			<div>
+		<header className={`${styles.header}`}>
+			<div className={styles.showMobile}>
 				<Link href="/">
 					<a className={styles.logo}>logo</a>
 				</Link>
 			</div>
 			<div className={open ? styles.backdrop : ''} onClick={toggleMenu}>
-				<nav className={styles.nav}>
+				<nav className={`${styles.nav} ${open ? styles.navOpen : ''}`}>
 					<ul className={styles.list}>
 						<li>
 							<Link href="/guide">
@@ -43,11 +44,11 @@ const Header: NextPage = () => {
 						</li>
 					</ul>
 				</nav>
+				<button className={styles.hamburgerMenu} onClick={toggleMenu}>
+					<span className="sr-only">Menu</span>
+					<GiHamburgerMenu />
+				</button>
 			</div>
-			<button className={styles.hamburgerMenu} onClick={toggleMenu}>
-				<span className="sr-only">Menu</span>
-				<GiHamburgerMenu />
-			</button>
 		</header>
 	);
 };
