@@ -33,27 +33,6 @@ const SingleEventPage: NextPage<Props> = ({ event }) => {
 
 	const dt = dateTime ? new Date(dateTime) : null;
 
-	// const dayToString = (dayNo: number): string => {
-	// 	switch (dayNo) {
-	// 		case 0:
-	// 			return 'Sunday';
-	// 		case 1:
-	// 			return 'Monday';
-	// 		case 2:
-	// 			return 'Tuesday';
-	// 		case 3:
-	// 			return 'Wednesday';
-	// 		case 4:
-	// 			return 'Thursday';
-	// 		case 5:
-	// 			return 'Friday';
-	// 		case 6:
-	// 			return 'Saturday';
-	// 		default:
-	// 			return '';
-	// 	}
-	// };
-
 	return (
 		<main className="main">
 			<Head>
@@ -62,7 +41,6 @@ const SingleEventPage: NextPage<Props> = ({ event }) => {
 			<BlogContainer>
 				<Link href="/event">View all Events</Link>
 				<h1 className="title">{title}</h1>
-				{dt && <h4>{`${dt.toString()}`}</h4>}
 				<div className="author">
 					{author.map((member) => (
 						<p key={member.fields.fullname}>
@@ -72,15 +50,22 @@ const SingleEventPage: NextPage<Props> = ({ event }) => {
 						</p>
 					))}
 				</div>
-				<div className="featured-image">
+				<div className="image-wrapper">
 					<Image
-						className="rounded"
+						className="rounded featured-image"
 						src={'http:' + featuredImage.fields.file.url}
 						width={featuredImage.fields.file.details.image!.width}
 						height={featuredImage.fields.file.details.image!.height}
 						alt={featuredImage.fields.title}
 					/>
 				</div>
+				{dt && (
+					<h4>
+						<em>{`Event Date: ${dt.toDateString()}`}</em>
+						<br />
+						<em>{`Event Time: ${dt.toTimeString()}`}</em>
+					</h4>
+				)}
 				<div className="main-content">
 					{documentToReactComponents(mainContent!)}
 				</div>

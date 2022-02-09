@@ -56,6 +56,10 @@ main {
 	border-radius: 2rem;
 }
 
+.image-wrapper {
+	margin: 1rem 0;
+}
+
 .circle {
 	border-radius: 100%;
 }

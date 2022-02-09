@@ -12,12 +12,12 @@
 
 .logo {
 	color: var(--link-alternate);
-	font-size: larger;
+	font-size: large;
 }
 
 .navLink {
 	color: var(--link-alternate);
-	font-size: larger;
+	font-size: large;
 }
 
 .list {

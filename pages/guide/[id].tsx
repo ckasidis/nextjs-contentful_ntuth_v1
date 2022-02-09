@@ -48,13 +48,15 @@ const SingleGuidePage: NextPage<Props> = ({ guide }) => {
 						</p>
 					))}
 				</div>
-				<Image
-					className="rounded"
-					src={'http:' + featuredImage.fields.file.url}
-					width={featuredImage.fields.file.details.image!.width}
-					height={featuredImage.fields.file.details.image!.height}
-					alt={featuredImage.fields.title}
-				/>
+				<div className="image-wrapper">
+					<Image
+						className="rounded"
+						src={'http:' + featuredImage.fields.file.url}
+						width={featuredImage.fields.file.details.image!.width}
+						height={featuredImage.fields.file.details.image!.height}
+						alt={featuredImage.fields.title}
+					/>
+				</div>
 				<div className="main-content">
 					{documentToReactComponents(mainContent!)}
 				</div>
