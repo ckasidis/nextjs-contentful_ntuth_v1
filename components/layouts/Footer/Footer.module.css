@@ -3,4 +3,5 @@
 	place-items: center;
 	background-color: var(--primary);
 	min-height: var(--footer-height);
+	color: var(--text-alternate);
 }

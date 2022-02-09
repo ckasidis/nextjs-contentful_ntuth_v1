@@ -27,12 +27,17 @@
 
 .hamburgerMenu {
 	display: none;
+	color: var(--text-alternate);
 }
 
 @media (max-width: 40em) {
 	.hamburgerMenu {
 		display: block;
 		border: none;
+	}
+
+	.hamburgerMenuActive {
+		display: none;
 	}
 
 	.nav {
@@ -44,18 +49,6 @@
 		width: min(60vw, 20rem);
 		transform: translateX(100%);
 	}
-
-	/* .navClose {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		border-width: 0;
-	} */
 
 	.navOpen {
 		animation: slide-in 0.25s forwards;

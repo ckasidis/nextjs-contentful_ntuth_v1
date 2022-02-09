@@ -44,7 +44,12 @@ const Header: NextPage = () => {
 						</li>
 					</ul>
 				</nav>
-				<button className={styles.hamburgerMenu} onClick={toggleMenu}>
+				<button
+					className={`${styles.hamburgerMenu} ${
+						open ? styles.hamburgerMenuActive : ''
+					}`}
+					onClick={toggleMenu}
+				>
 					<span className="sr-only">Menu</span>
 					<GiHamburgerMenu />
 				</button>
