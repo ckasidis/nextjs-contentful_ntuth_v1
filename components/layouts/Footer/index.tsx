@@ -4,7 +4,7 @@ import { NextPage } from 'next';
 const Footer: NextPage = () => {
 	return (
 		<footer className={styles.footer}>
-			<p>Footer Text</p>
+			<p>&copy; {new Date().getFullYear()} All Rights Reserved</p>
 		</footer>
 	);
 };
