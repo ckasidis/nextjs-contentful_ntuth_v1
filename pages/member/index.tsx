@@ -27,9 +27,11 @@ const MemberPage: NextPage<Props> = ({ members }) => {
 			<Head>
 				<title>Members</title>
 			</Head>
-			<Section title="Our Members">
-				<MemberList members={members} />
-			</Section>
+			<div className="sections-container">
+				<Section title="Our Members">
+					<MemberList members={members} />
+				</Section>
+			</div>
 		</>
 	);
 };

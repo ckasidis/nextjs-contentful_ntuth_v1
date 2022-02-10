@@ -39,19 +39,21 @@ const HomePage: NextPage<Props> = ({ guides, events }) => {
 			<Head>
 				<title>Home</title>
 			</Head>
-			<Banner title="Home" description="Welcome to NTU Thai Society" />
-			<Section
-				title="Our Guides"
-				link={{ path: '/guide', text: 'View all Guides' }}
-			>
-				<GuideList guides={guides} />
-			</Section>
-			<Section
-				title="Latest Events"
-				link={{ path: '/event', text: 'View all Events' }}
-			>
-				<EventList events={events} />
-			</Section>
+			<Banner title="Hello!" description="Welcome to NTU Thai Society" />
+			<div className="sections-container">
+				<Section
+					title="Our Guides"
+					link={{ path: '/guide', text: 'View all Guides' }}
+				>
+					<GuideList guides={guides} />
+				</Section>
+				<Section
+					title="Latest Events"
+					link={{ path: '/event', text: 'View all Events' }}
+				>
+					<EventList events={events} />
+				</Section>
+			</div>
 		</>
 	);
 };

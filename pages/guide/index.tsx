@@ -24,9 +24,11 @@ const GuidePage: NextPage<Props> = ({ guides }) => {
 			<Head>
 				<title>Guides</title>
 			</Head>
-			<Section title="Our Guides">
-				<GuideList guides={guides} />
-			</Section>
+			<div className="sections-container">
+				<Section title="All Guides">
+					<GuideList guides={guides} />
+				</Section>
+			</div>
 		</>
 	);
 };

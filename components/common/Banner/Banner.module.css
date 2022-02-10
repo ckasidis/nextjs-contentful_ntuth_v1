@@ -1,7 +1,10 @@
 .container {
 	display: grid;
 	place-items: center;
-	background-color: var(--bg-container);
+	background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+		url('../../../public/marina-bay.jpeg');
+	background-size: cover;
+	background-position: center;
 	width: 100vw;
 	height: 20rem;
 }
@@ -9,4 +12,5 @@
 .text {
 	display: grid;
 	place-items: center;
+	color: var(--text-alternate);
 }

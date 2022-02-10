@@ -24,9 +24,11 @@ const EventPage: NextPage<Props> = ({ events }) => {
 			<Head>
 				<title>Events</title>
 			</Head>
-			<Section title="Our Events">
-				<EventList events={events} />
-			</Section>
+			<div className="sections-container">
+				<Section title="All Events">
+					<EventList events={events} />
+				</Section>
+			</div>
 		</>
 	);
 };

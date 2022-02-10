@@ -10,7 +10,7 @@ interface Props {
 	};
 }
 
-const HomePage: NextPage<Props> = ({ title, link, children }) => {
+const Section: NextPage<Props> = ({ title, link, children }) => {
 	return (
 		<div className={styles.section}>
 			<header>
@@ -22,4 +22,4 @@ const HomePage: NextPage<Props> = ({ title, link, children }) => {
 	);
 };
 
-export default HomePage;
+export default Section;
