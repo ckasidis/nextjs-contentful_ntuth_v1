@@ -3,6 +3,7 @@ import { NextPage } from 'next';
 import Link from 'next/link';
 import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import Image from 'next/image';
 
 const Header: NextPage = () => {
 	const [open, setOpen] = useState<boolean | null>(null);
@@ -12,10 +13,10 @@ const Header: NextPage = () => {
 	};
 
 	return (
-		<header className={`${styles.header}`}>
-			<div className={styles.showMobile}>
+		<header className={styles.header}>
+			<div className={styles.logoGroup}>
 				<Link href="/">
-					<a className={styles.logo}>logo</a>
+					<Image src="/NTUTH.svg" width={80} height={80} />
 				</Link>
 			</div>
 			<div className={open ? styles.backdrop : ''} onClick={toggleMenu}>

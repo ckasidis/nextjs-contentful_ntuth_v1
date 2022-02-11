@@ -10,9 +10,9 @@
 	padding: 0 2rem;
 }
 
-.logo {
-	color: var(--link-alternate);
-	font-size: large;
+.logoGroup {
+	display: grid;
+	place-items: center;
 }
 
 .navLink {
